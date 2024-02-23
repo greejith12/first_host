@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+
+        {{Product.desc|truncatewords:155 }}
+
+        Welcome to mystore
+
+{% endblock %}
+{% block title %}
+  {% if category %}
+        {{Product.name }} -Mystore
+    {% else %}
+        Our new Collection - Mystore
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row my_prod_row_class">
+    <div class="mx_auto">
+        <p><a href="{%url 'shop:allprodcat' %}">Home </a> | <a href="{{Product.category.get_url}}">{{Product.category}}</a> | {{Product.name}} </p>
+    </div>
+</div>
+<div class="container">
+<br>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+        <div>
+            <img src="{{Product.image.url}}" alt="{{Product.name}}">
+        </div>
+    </div>
+
+     <div class="col-12 col-sm-12-col-md-12 col-lg-6">
+         <div>
+         <h1 class="my_prod_titile">{{Product.name}}</h1>
+         <p>${{Product.price}}</p>
+         <p class="my_title">Product Description</p>
+         <p class="text-justify my_prod_text">{{Product.desc}}</p>
+         {% if Product.stock <= 0 %}
+         <p><b> OUT OF STOCK </b></p>
+         {% else %}
+         <a class="btn btn-secondary" href="{% url 'cart:add_cart' Product.id %}">Add to cart </a>
+         {% endif %}
+     </div>
+ </div>
+</div>
+</div>
+{% endblock %}

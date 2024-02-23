@@ -1,0 +1,115 @@
+.nav-item
+         {
+         letter-spacing : .2e;
+         font-size :14px;
+         text-transform : uppercase;
+         }
+
+.dropdown-item
+         {
+         letter-spacing :2e;
+         font-size :17px;
+         text-transform :uppercase;
+         }
+
+.my_footer{
+            background-color:#f8f9fa;
+            height:60px;
+           }
+.my_footer p{
+             padding-top:20px;
+             font-size:14px;
+             }
+             .mx_auto{
+             margin-left: 50px;
+             margin-right: auto;
+                 }
+
+.my_row_class{
+              padding:5px;
+              }
+.my_row_class .mx_auto{
+                color:#0000;
+                font-size:30px;
+
+                }
+
+ .card-body p{
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+.my_image
+{
+font-size:40px;
+width:25%;
+height:40%;
+
+}
+.my_title
+{
+font-size:14px;
+text_transform:uppercase;
+letter-spacing:.2em;
+}
+.my_img_padding
+{
+padding:5px;
+}
+.my_bottom_margi
+{
+margin-bottom:50px;
+}
+.card-body h4
+        {
+        text-size:40px;
+        letter-spacing:.2em;
+        text-transform:uppercase;
+        }
+
+        ///***poroduct oage***///
+.my_prod_row_class
+{
+padding-top:15px;
+padding-bottom:20px;
+}
+.my_prod_row_class .mx_auto
+{
+color:#000;
+font-size:12px;
+font-decoration:none;
+}
+.my_prod_titile
+{
+font-size:30px;
+text_transform:uppercase;
+letter-spacing:.2em;
+padding-top:15px;
+padding-bottom:10px;
+}
+.my_prod_text
+{
+padding-right:20px;
+}
+.my_search_text
+{
+padding:20px;
+}
+. my_custom_table{
+min-width:400px;
+font-size:14px;
+}
+.my_custom_thead{
+font-weight:normal;
+text_transform:uppercase;
+letter-spacing:.2em;
+background-color:f8f8fa!important;
+}
+.custom_a{
+text-decoration:none;
+}
+.custom_icon{
+text-decoration:none;
+color:#868e96 !important;
+}
+.my_custom_button{
+margin-top:5px;
+}

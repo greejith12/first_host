@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{category.description|truncatewords:155 }}
+    {% else %}
+        Welcome to mystore
+    {% endif %}
+{% endblock %}
+{% block title %}
+  {% if category %}
+        {{category.name }} -Mystore
+    {% else %}
+        Our new Collection - Mystore
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<center>
+<div class="mx_auto">
+    {% if category %}
+    <img class="my_image  " src="{{category.image.url}}" alt="{{category.name}}">
+
+</div>
+</center>
+
+{% if category %}
+    <div>
+        <div class="row my_row_class">
+            <div class="mx_auto">
+                <p><a href="{% url 'shop:allprodcat'%}"><h3 class="text-center">Our product collection</h3></a></p>
+        </div>
+            </div>
+    </div>
+{% endif %}
+<div>
+    <h4 class="text-center my-title">{{category.name}}</h4>
+    <p class="text-justify">{{category.description}}</p>
+</div>
+    {% else %}
+        <div>
+             <img class="my_img my_img_padding" src="{% static 'img/banner1.jpg' %}" alt="our product" width="1510px" height="400px">
+        </div>
+        <br>
+        <div>
+
+            <div class="card">
+             <div class="card-header text-center">
+                <h1>Our Collections</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Listening, Speaking, Reading and Writing (L-S-R-W) are the four skills of language learning. These are the set of four capabilities that allow an individual to comprehend and use a spoken language for proper and effective interpersonal communication. Reading is considered as one of the best habits anyone can possess. Reading helps a great deal in building our confidence, reduces stress and puts us in a better mood. It also develops our imagination and provides us with a fortune of knowledge. It is rightly said that books are our best friend as reading helps build up our wisdom and thinking capabilities. By developing the habit of reading, one can gain confidence in learning any language. The interest in reading, like any other habit, comes with time. Once a person starts reading, it becomes a part of habit and he/she starts to explore a whole new world.</p>
+
+                </div>
+                </div>
+            <br>
+        </div>
+{% endif %}
+<div class="container">
+            <div class="row mx_auto ">
+        {% for product in Product.object_list %}
+            <div class="my_bottom_margi col-9 col-sm-12 col-md-4 xol-lg-4">
+                <div class="card h-100 text-center" style="min-width:10rem">
+                <a href="{{product.get_url}}"><img class="card-img-top my_image " width="300px" height="200px" src="{{product.image.url}}" alt="{{product.name}}"></a>
+                <div class="card-body">
+                    <h4>{{product.name}}</h4>
+                    <h4>{{product.price}}</h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mx_auto">
+        {% if Product.paginator.num_pages > 1 %}
+
+        <hr>
+        <div class="text-center">
+            {% for pg in Product.paginator.page_range %}
+                <a href="?page={{pg}} " class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <br>
+</div>
+{% endblock %}
